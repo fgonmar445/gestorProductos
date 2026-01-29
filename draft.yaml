@@ -1,0 +1,12 @@
+models:
+  Producto:
+    nombre: string
+    descripcion: text
+    precio: decimal:8,2
+    stock: integer
+    categoria: string
+    activo: boolean
+
+controllers:
+  Producto:
+    resource: web

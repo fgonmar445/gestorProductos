@@ -1,0 +1,16 @@
+created:
+    - app/Http/Controllers/ProductoController.php
+    - database/factories/ProductoFactory.php
+    - database/migrations/2026_01_29_112256_create_productos_table.php
+    - app/Models/Producto.php
+    - tests/Feature/Http/Controllers/ProductoControllerTest.php
+    - app/Http/Requests/ProductoStoreRequest.php
+    - app/Http/Requests/ProductoUpdateRequest.php
+    - resources/views/producto/index.blade.php
+    - resources/views/producto/create.blade.php
+    - resources/views/producto/show.blade.php
+    - resources/views/producto/edit.blade.php
+updated:
+    - routes/web.php
+models:
+    Producto: { nombre: string, descripcion: text, precio: 'decimal:8,2', stock: integer, categoria: string, activo: boolean }
