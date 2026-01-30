@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="text-xl font-semibold leading-tight">
+        <h2 class="font-semibold text-2xl text-gray-900 leading-tight">
             Crear producto
         </h2>
     </x-slot>
@@ -13,7 +13,7 @@
 
                 @include('producto.form')
 
-                <button class="bg-blue-600 text-white px-4 py-2 rounded mt-4">
+                <button class="bg-green-600 text-white px-4 py-2 rounded mt-4">
                     Guardar
                 </button>
             </form>

@@ -20,9 +20,7 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `gestor-productos`
 --
-GRANT USAGE ON *.* TO `gestor-productos`@`%` IDENTIFIED BY PASSWORD '*A28D6A233B76FC581A8E711B8966883C91C97612';
 
-GRANT SELECT, INSERT, UPDATE, DELETE ON `gestor-productos`.* TO `gestor-productos`@`%`;
 -- --------------------------------------------------------
 
 --
