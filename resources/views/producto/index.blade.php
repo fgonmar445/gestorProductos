@@ -10,67 +10,80 @@
 
             {{-- Botón crear producto --}}
             <a href="{{ route('productos.create') }}"
-               class="bg-green-600 text-white px-5 py-2.5 rounded-lg shadow hover:bg-green-700 transition mb-5 inline-block">
+               class="bg-green-600 text-white px-5 py-2.5 rounded-lg shadow hover:bg-green-700 transition mb-6 inline-block">
                 ➕ Crear producto
             </a>
 
-            {{-- Tabla --}}
-            <div class="bg-white shadow-md rounded-xl border border-gray-100 p-6">
+            {{-- Grid de productos --}}
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
 
-                <table class="w-full text-left border-collapse">
-                    <thead>
-                        <tr class="border-b bg-gray-50 text-gray-700">
-                            <th class="py-3 px-2 font-semibold">Nombre</th>
-                            <th class="py-3 px-2 font-semibold">Precio</th>
-                            <th class="py-3 px-2 font-semibold">Stock</th>
-                            <th class="py-3 px-2 font-semibold">Categoría</th>
-                            <th class="py-3 px-2 font-semibold">Disponible</th>
-                            <th class="py-3 px-2 font-semibold">Acciones</th>
-                        </tr>
-                    </thead>
+                @foreach ($productos as $producto)
+                    <div class="bg-white shadow-md rounded-xl border border-gray-100 p-5 hover:shadow-lg transition">
 
-                    <tbody class="text-gray-800">
-                        @foreach ($productos as $producto)
-                            <tr class="border-b hover:bg-gray-50 transition">
-                                <td class="py-3 px-2">{{ $producto->nombre }}</td>
-                                <td class="px-2">{{ $producto->precio }} €</td>
-                                <td class="px-2">{{ $producto->stock }}</td>
-                                <td class="px-2">{{ $producto->categoria }}</td>
-                                <td class="px-2">
-                                    @if($producto->disponible)
-                                        <span class="text-green-600 font-semibold">Sí</span>
-                                    @else
-                                        <span class="text-red-600 font-semibold">No</span>
-                                    @endif
-                                </td>
+                        {{-- Icono o placeholder --}}
+                        
 
-                                <td class="py-3 px-2 flex gap-3">
+                        {{-- Nombre --}}
+                        <h3 class="text-lg font-semibold text-gray-900 text-center">
+                            {{ $producto->nombre }}
+                        </h3>
 
-                                    {{-- Botón editar --}}
-                                    <a href="{{ route('productos.edit', $producto) }}"
-                                       class="text-indigo-600 font-medium hover:text-indigo-800 transition">
-                                        ✏️ Editar
-                                    </a>
+                        {{-- Categoría --}}
+                        <p class="text-center mt-1">
+                            <span class="px-3 py-1 text-xs bg-blue-100 text-blue-700 rounded-full">
+                                {{ $producto->categoria }}
+                            </span>
+                        </p>
 
-                                    {{-- Botón eliminar --}}
-                                    <form action="{{ route('productos.destroy', $producto) }}"
-                                          method="POST"
-                                          onsubmit="return confirm('¿Eliminar producto?')">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="text-red-600 font-medium hover:text-red-800 transition">
-                                            🗑️ Eliminar
-                                        </button>
-                                    </form>
+                        {{-- Precio --}}
+                        <p class="text-center mt-3 text-xl font-bold text-green-600">
+                            {{ number_format($producto->precio, 2) }} €
+                        </p>
 
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
+                        {{-- Stock --}}
+                        <p class="text-center text-sm mt-1 text-gray-600">
+                            Stock: 
+                            <span class="font-semibold {{ $producto->stock > 0 ? 'text-green-600' : 'text-red-600' }}">
+                                {{ $producto->stock }}
+                            </span>
+                        </p>
 
-                </table>
+                        {{-- Disponible --}}
+                        <p class="text-center mt-1">
+                            @if($producto->disponible)
+                                <span class="text-green-600 font-semibold">Disponible</span>
+                            @else
+                                <span class="text-red-600 font-semibold">No disponible</span>
+                            @endif
+                        </p>
+
+                        {{-- Acciones --}}
+                        <div class="mt-4 flex justify-center gap-3">
+
+                            {{-- Editar --}}
+                            <a href="{{ route('productos.edit', $producto) }}"
+                               class="px-3 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition text-sm">
+                                ✏️ Editar
+                            </a>
+
+                            {{-- Eliminar --}}
+                            <form action="{{ route('productos.destroy', $producto) }}"
+                                  method="POST"
+                                  onsubmit="return confirm('¿Eliminar producto?')">
+                                @csrf
+                                @method('DELETE')
+                                <button class="px-3 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition text-sm">
+                                    🗑️ Eliminar
+                                </button>
+                            </form>
+
+                        </div>
+
+                    </div>
+                @endforeach
 
             </div>
+
         </div>
     </div>
 </x-app-layout>

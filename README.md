@@ -1,7 +1,7 @@
 # Gestor de Productos (Laravel)
 
-Aplicación sencilla en Laravel para gestionar productos: crear, listar, editar y eliminar.  
-Incluye validación, vistas con Blade y un CRUD completo.
+Aplicación CRUD desarrollada con Laravel, que permite gestionar productos: crear, listar, editar y eliminar.
+Incluye validación, vistas con Blade, migraciones, Tailwind CSS y una estructura limpia y escalable.
 
 ---
 
@@ -58,19 +58,61 @@ php artisan migrate
 ```
 ---
 
+
+```
+gestorProductos/
+│
+├── app/
+│   ├── Http/
+│   │   └── Controllers/
+│   │       └── ProductoController.php
+│   └── Models/
+│       └── Producto.php
+│
+├── bootstrap/
+├── config/
+├── database/
+│   ├── migrations/
+│   └── gestor-productos.sql
+│
+├── public/
+├── resources/
+│   └── views/
+│       └── productos/
+│           ├── index.blade.php
+│           ├── create.blade.php
+│           ├── edit.blade.php
+│           └── form.blade.php
+│
+├── routes/
+│   └── web.php
+│
+├── storage/
+├── tests/
+│
+├── package.json
+├── composer.json
+├── tailwind.config.js
+├── vite.config.js
+└── README.md
+
+
+```
+
 ## 📁 Estructura del CRUD
+
 
 Controlador
 app/Http/Controllers/ProductoController.php
 
 Incluye métodos:
 
-- index
-- create
-- store
-- edit
-- update
-- destroy
+- index() → Listar productos
+- create() → Formulario de creación
+- store() → Guardar producto
+- edit() → Formulario de edición
+- update() → Actualizar producto
+- destroy() → Eliminar producto
 
 ### Modelo
 
@@ -85,4 +127,33 @@ protected $fillable = [
     'categoria',
     'disponible',
 ];
-``` 
+```
+
+---
+
+## 🎨 Vistas (Blade)
+```
+resources/views/productos/
+```
+- index.blade.php
+
+- create.blade.php
+
+- edit.blade.php
+
+- form.blade.php
+
+### Imágenes
+
+- Homepage
+<img src="/public/images/homepage.png">
+
+- Inicio
+<img src="/public/images/inicio.png">
+
+- Productos
+<img src="/public/images/productos.png">
+
+
+- Editar productos
+<img src="/public/images/editar.png">
