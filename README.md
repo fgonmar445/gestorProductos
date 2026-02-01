@@ -1,11 +1,10 @@
 # Gestor de Productos (Laravel)
 
-Aplicación CRUD desarrollada con Laravel, que permite gestionar productos: crear, listar, editar y eliminar.
-Incluye validación, vistas con Blade, migraciones, Tailwind CSS y una estructura limpia y escalable.
+Gestor de Productos es una aplicación CRUD construida con Laravel y Tailwind CSS que permite administrar inventario de forma sencilla. Incluye panel de control con estadísticas, validación de formularios, migraciones, componentes Blade y un diseño moderno.
 
 ---
 
-## 🚀 Requisitos
+## Requisitos
 
 - PHP 8+
 - Composer
@@ -15,7 +14,7 @@ Incluye validación, vistas con Blade, migraciones, Tailwind CSS y una estructur
 
 ---
 
-## 📦 Instalación
+## Instalación
 
 Clona el repositorio:
 
@@ -24,7 +23,7 @@ git clone https://github.com/fgonmar445/gestorProductos
 cd gestorProductos
 ```
 
-## 📦 Instalación dependencias
+## Instalación dependencias
 
 ```bash
 composer install
@@ -45,7 +44,7 @@ php artisan key:generate
 
 ---
 
-## ▶️ Configuración de Base de Datos
+## Configuración de Base de Datos
 - Edita tu archivo .env:
 ```bash
 DB_DATABASE=nombre_de_tu_bd
@@ -58,6 +57,7 @@ php artisan migrate
 ```
 ---
 
+## Estructura del CRUD
 
 ```
 gestorProductos/
@@ -95,17 +95,14 @@ gestorProductos/
 ├── tailwind.config.js
 ├── vite.config.js
 └── README.md
-
-
 ```
 
-## 📁 Estructura del CRUD
+### Controlador
 
-
-Controlador
 app/Http/Controllers/ProductoController.php
 
-Incluye métodos:
+
+Métodos incluidos:
 
 - index() → Listar productos
 - create() → Formulario de creación
@@ -128,10 +125,30 @@ protected $fillable = [
     'disponible',
 ];
 ```
-
 ---
 
+## Funcionalidades
+
+- CRUD completo de productos
+
+- Panel de control con estadísticas
+
+- Validación de formularios
+
+- Gestión de stock (incluye alertas de stock bajo)
+
+- Categorías y disponibilidad
+
+- Diseño responsive con Tailwind CSS
+
+- Últimos productos añadidos
+
+- Código organizado siguiendo MVC
+
+--- 
+
 ## 🎨 Vistas (Blade)
+- Ubicadas en:
 ```
 resources/views/productos/
 ```
@@ -143,7 +160,7 @@ resources/views/productos/
 
 - form.blade.php
 
-### Imágenes
+### Capturas de pantalla
 
 - Homepage
 <img src="/public/images/homepage.png">
@@ -157,3 +174,26 @@ resources/views/productos/
 
 - Editar productos
 <img src="/public/images/editar.png">
+
+---
+## Cómo ejecutar el proyecto
+- Ejecutar el servidor
+```
+php artisan serve
+```
+- Compilar estilos
+```
+npm run dev
+```
+- Accede a http://127.0.0.1:8000
+---
+## Mejoras futuras
+* Subida de imágenes para productos
+
+- Exportar inventario a PDF/Excel
+
+- Gráficos en el panel (Chart.js)
+
+- Filtros avanzados en el listado
+
+- Autenticación por roles (admin/usuario)
