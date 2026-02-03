@@ -6,9 +6,19 @@
         <div
             class="w-full max-w-md p-8 rounded-2xl shadow-2xl border border-white/30 backdrop-blur-xl bg-white/40 animate-fadeIn">
 
-            <h2 class="text-4xl font-extrabold text-gray-900 text-center mb-8 tracking-tight">
-                Bienvenido de nuevo
-            </h2>
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-gray-900 tracking-tight">
+                    Iniciar sesión
+                </h2>
+                <p class="text-gray-600 mt-1">
+                    Accede a tu espacio de gestión
+                </p>
+            </div>
+
+
+
+
+
 
             <!-- Session Status -->
             <x-auth-session-status class="mb-4" :status="session('status')" />
