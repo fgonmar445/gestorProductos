@@ -162,27 +162,27 @@ resources/views/productos/
 
 ## Capturas de pantalla
 
-- Homepage
+### Homepage
 <img src="/public/images/homepage.png">
 
 ---
 
-- Inicio
+### Inicio
 <img src="/public/images/inicio.png">
 
 ---
 
-- Productos
+### Productos
 <img src="/public/images/productos.png">
 
 ---
 
-- Editar productos
+### Editar productos
 <img src="/public/images/editar.png">
 
 ---
 
-- Detalles productos
+### Detalles productos
 <img src="/public/images/detalle_productos.png">
 
 ---
