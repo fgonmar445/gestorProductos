@@ -13,7 +13,7 @@ class ProductoController extends Controller
 {
     public function index(Request $request): View
     {
-        $productos = Producto::all();
+        $productos = Producto::paginate(12);
 
         return view('producto.index', [
             'productos' => $productos,
@@ -25,17 +25,9 @@ class ProductoController extends Controller
         return view('producto.create');
     }
 
-    public function store(Request $request)
+    public function store(ProductoStoreRequest $request)
     {
-        $request->validate([
-            'nombre' => 'required',
-            'descripcion' => 'nullable',
-            'precio' => 'required|numeric',
-            'stock' => 'required|integer',
-            'categoria' => 'required',
-        ]);
-
-        $data = $request->all();
+        $data = $request->validated();
         $data['disponible'] = $request->has('disponible') ? 1 : 0;
 
         Producto::create($data);
@@ -43,8 +35,6 @@ class ProductoController extends Controller
         return redirect()->route('productos.index')
             ->with('success', 'Producto creado correctamente');
     }
-
-
 
     public function show(Request $request, Producto $producto): View
     {
@@ -60,18 +50,9 @@ class ProductoController extends Controller
         ]);
     }
 
-    public function update(Request $request, Producto $producto)
+    public function update(ProductoUpdateRequest $request, Producto $producto)
     {
-        $request->validate([
-            'nombre' => 'required',
-            'precio' => 'required|numeric',
-            'stock' => 'required|integer',
-            'categoria' => 'required',
-            'disponible' => 'nullable'
-        ]);
-
-        // Si el checkbox no viene marcado, Laravel no lo envía → lo ponemos a 0
-        $data = $request->all();
+        $data = $request->validated();
         $data['disponible'] = $request->has('disponible') ? 1 : 0;
 
         $producto->update($data);
@@ -79,7 +60,6 @@ class ProductoController extends Controller
         return redirect()->route('productos.index')
             ->with('success', 'Producto actualizado correctamente');
     }
-
 
     public function destroy(Request $request, Producto $producto): RedirectResponse
     {

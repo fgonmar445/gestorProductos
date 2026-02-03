@@ -20,12 +20,12 @@ class ProductoUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nombre' => ['required', 'string'],
-            'descripcion' => ['required', 'string'],
-            'precio' => ['required', 'numeric', 'between:-999999.99,999999.99'],
-            'stock' => ['required', 'integer'],
-            'categoria' => ['required', 'string'],
-            'activo' => ['required'],
+            'nombre' => 'required|string|max:255',
+            'descripcion' => 'nullable|string',
+            'precio' => 'required|numeric|between:0,999999.99',
+            'stock' => 'required|integer|min:0',
+            'categoria' => 'required|string',
+            'disponible' => 'nullable|boolean',
         ];
     }
 }
