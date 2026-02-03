@@ -178,6 +178,7 @@ resources/views/productos/
 
 - Detalles productos
 <img src="/public/images/detalle_productos.png">
+
 ---
 ## Cómo ejecutar el proyecto
 - Ejecutar el servidor
