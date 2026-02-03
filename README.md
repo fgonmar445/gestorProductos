@@ -172,8 +172,7 @@ resources/views/productos/
 <img src="/public/images/productos.png">
 
 
-- Editar productos
-<img src="/public/images/editar.png">
+
 
 
 - Detalles productos
