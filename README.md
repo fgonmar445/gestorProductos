@@ -147,7 +147,7 @@ protected $fillable = [
 
 --- 
 
-## 🎨 Vistas (Blade)
+## Vistas (Blade)
 - Ubicadas en:
 ```
 resources/views/productos/
@@ -165,16 +165,22 @@ resources/views/productos/
 - Homepage
 <img src="/public/images/homepage.png">
 
+---
+
 - Inicio
 <img src="/public/images/inicio.png">
+
+---
 
 - Productos
 <img src="/public/images/productos.png">
 
+---
 
 - Editar productos
 <img src="/public/images/editar.png">
 
+---
 
 - Detalles productos
 <img src="/public/images/detalle_productos.png">
