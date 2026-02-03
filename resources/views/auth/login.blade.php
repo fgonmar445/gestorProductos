@@ -69,9 +69,6 @@
                     <x-input-error :messages="$errors->get('password')" class="mt-2" />
                 </div>
 
-
-
-
                 <!-- Remember -->
                 <div class="flex items-center">
                     <input id="remember_me" type="checkbox"
