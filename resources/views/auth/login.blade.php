@@ -1,26 +1,32 @@
 <x-guest-layout>
 
     <div
-        class="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 via-indigo-50 to-gray-100 px-4">
+        class="min-h-screen flex items-center justify-center px-4 bg-gradient-to-br from-indigo-100 via-white to-indigo-200">
 
-        <div class="w-full max-w-md bg-white/80 backdrop-blur-sm shadow-xl rounded-2xl p-8 border border-gray-200">
+        <div
+            class="w-full max-w-md p-8 rounded-2xl shadow-2xl border border-white/30 backdrop-blur-xl bg-white/40 animate-fadeIn">
 
-            <h2 class="text-3xl font-bold text-gray-900 text-center mb-6">
-                Iniciar sesión
+            <h2 class="text-4xl font-extrabold text-gray-900 text-center mb-8 tracking-tight">
+                Bienvenido de nuevo
             </h2>
 
             <!-- Session Status -->
             <x-auth-session-status class="mb-4" :status="session('status')" />
 
-            <form method="POST" action="{{ route('login') }}">
+            <form method="POST" action="{{ route('login') }}" class="space-y-6">
                 @csrf
 
-                <!-- Email Address -->
+                <!-- Email -->
                 <div>
-                    <x-input-label for="email" :value="__('Email')" class="text-gray-700 font-medium" />
-                    <x-text-input id="email"
-                        class="block mt-1 w-full rounded-lg border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
-                        type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+                    <label for="email" class="block text-gray-700 font-semibold mb-1">Email</label>
+
+                    <div class="relative">
+
+                        <x-text-input id="email"
+                            class="block mt-1 w-full rounded-lg border-gray-300 pr-10 focus:border-indigo-500 focus:ring-indigo-500"
+                            type="email" name="email" :value="old('email')" required autofocus />
+                    </div>
+
                     <x-input-error :messages="$errors->get('email')" class="mt-2" />
                 </div>
 
@@ -59,56 +65,56 @@
                     <x-input-error :messages="$errors->get('password')" class="mt-2" />
                 </div>
 
-                <script>
-                    function togglePassword() {
-                        const input = document.getElementById('password');
-                        const showIcon = document.getElementById('icon-show');
-                        const hideIcon = document.getElementById('icon-hide');
-
-                        if (input.type === 'password') {
-                            input.type = 'text';
-                            showIcon.classList.add('hidden');
-                            hideIcon.classList.remove('hidden');
-                        } else {
-                            input.type = 'password';
-                            hideIcon.classList.add('hidden');
-                            showIcon.classList.remove('hidden');
-                        }
-                    }
-                </script>
 
 
 
-                <!-- Remember Me -->
-                <div class="block mt-4">
-                    <label for="remember_me" class="inline-flex items-center">
-                        <input id="remember_me" type="checkbox"
-                            class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500"
-                            name="remember">
-                        <span class="ms-2 text-sm text-gray-600">{{ __('Recuerdame') }}</span>
-                    </label>
+                <!-- Remember -->
+                <div class="flex items-center">
+                    <input id="remember_me" type="checkbox"
+                        class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
+                    <label for="remember_me" class="ml-2 text-sm text-gray-700">Recuérdame</label>
                 </div>
 
-                <!-- Actions -->
-                <div class="flex items-center justify-between mt-6">
+                <!-- Botón -->
+                <button type="submit"
+                    class="w-full py-3 rounded-xl text-white font-semibold text-lg shadow-lg bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 transition-all duration-300">
+                    Iniciar sesión
+                </button>
 
+                <!-- Enlace recuperar -->
+                <div class="text-center mt-4">
                     @if (Route::has('password.request'))
-                        <a class="text-sm text-indigo-600 hover:text-indigo-800 transition"
+                        <a class="text-sm text-indigo-700 hover:text-indigo-900 font-medium"
                             href="{{ route('password.request') }}">
-                            {{ __('¿Olvidaste tu contraseña?') }}
+                            ¿Olvidaste tu contraseña?
                         </a>
                     @endif
-
-                    <button type="submit"
-                        class="ms-3 px-6 py-2 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition">
-                        Iniciar sesión
-                    </button>
-
                 </div>
+
             </form>
-
         </div>
-
     </div>
+
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+
+    <script>
+        function togglePassword() {
+            const input = document.getElementById('password');
+            input.type = input.type === 'password' ? 'text' : 'password';
+        }
+    </script>
+
 
 </x-guest-layout>

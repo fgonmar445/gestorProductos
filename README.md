@@ -175,6 +175,9 @@ resources/views/productos/
 - Editar productos
 <img src="/public/images/editar.png">
 
+
+- Detalles productos
+<img src="/public/images/detalle_productos.png">
 ---
 ## Cómo ejecutar el proyecto
 - Ejecutar el servidor
