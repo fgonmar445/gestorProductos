@@ -160,7 +160,7 @@ resources/views/productos/
 
 - form.blade.php
 
-### Capturas de pantalla
+## Capturas de pantalla
 
 - Homepage
 <img src="/public/images/homepage.png">
