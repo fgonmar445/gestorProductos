@@ -17,6 +17,7 @@
 - [Características](#-características)
 - [Requisitos](#-requisitos)
 - [Instalación](#-instalación)
+- [Estructura del Proyecto](#-estructura-del-proyecto)
 - [Uso](#-uso)
 - [Capturas de Pantalla](#-capturas-de-pantalla)
 - [Contribución](#-contribución)
