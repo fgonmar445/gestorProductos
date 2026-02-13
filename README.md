@@ -10,14 +10,21 @@
 [![MySQL](https://img.shields.io/badge/MySQL-Database-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://mysql.com)
 [![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](LICENSE)
 
-[Características](#-características) •
-[Requisitos](#-requisitos) •
-[Instalación](#-instalación) •
-[Uso](#-uso) •
-[Capturas](#-capturas-de-pantalla) •
-[Mejoras Futuras](#-mejoras-futuras)
-
 </div>
+
+## 📋 Tabla de Contenidos
+
+- [Características](#-características)
+- [Tecnologías](#-tecnologías)
+- [Estructura del Proyecto](#-estructura-del-proyecto)
+- [Instalación](#-instalación)
+- [Uso](#-uso)
+- [Modelos de Datos](#-modelos-de-datos)
+- [Vistas de la Aplicación](#-vistas-de-la-aplicación)
+- [Funcionalidades](#-funcionalidades)
+- [Capturas de Pantalla](#-capturas-de-pantalla)
+- [Contribución](#-contribución)
+- [Licencia](#-licencia)
 
 ---
 
