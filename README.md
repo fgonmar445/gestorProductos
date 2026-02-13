@@ -15,13 +15,9 @@
 ## 📋 Tabla de Contenidos
 
 - [Características](#-características)
-- [Tecnologías](#-tecnologías)
-- [Estructura del Proyecto](#-estructura-del-proyecto)
+- [Requisitos](#-requisitos)
 - [Instalación](#-instalación)
 - [Uso](#-uso)
-- [Modelos de Datos](#-modelos-de-datos)
-- [Vistas de la Aplicación](#-vistas-de-la-aplicación)
-- [Funcionalidades](#-funcionalidades)
 - [Capturas de Pantalla](#-capturas-de-pantalla)
 - [Contribución](#-contribución)
 - [Licencia](#-licencia)
