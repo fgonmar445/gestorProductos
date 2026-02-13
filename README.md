@@ -1,63 +1,203 @@
-# Gestor de Productos (Laravel)
+<div align="center">
 
-Gestor de Productos es una aplicación CRUD construida con Laravel y Tailwind CSS que permite administrar inventario de forma sencilla. Incluye panel de control con estadísticas, validación de formularios, migraciones, componentes Blade y un diseño moderno.
+# 📦 Gestor de Productos
+
+### Sistema de gestión de inventario moderno y eficiente construido con Laravel
+
+[![Laravel](https://img.shields.io/badge/Laravel-12.0-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)](https://laravel.com)
+[![PHP](https://img.shields.io/badge/PHP-8.2+-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://php.net)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.0-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
+[![MySQL](https://img.shields.io/badge/MySQL-Database-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://mysql.com)
+[![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](LICENSE)
+
+[Características](#-características) •
+[Requisitos](#-requisitos) •
+[Instalación](#-instalación) •
+[Uso](#-uso) •
+[Capturas](#-capturas-de-pantalla) •
+[Mejoras Futuras](#-mejoras-futuras)
+
+</div>
 
 ---
 
-## Requisitos
+## 📋 Descripción
 
-- PHP 8+
-- Composer
-- MySQL / MariaDB
-- Node.js (opcional para estilos)
-- Git (opcional)
+**Gestor de Productos** es una aplicación web CRUD completa diseñada para administrar inventarios de productos de manera eficiente y profesional. Construida con **Laravel 12** y estilizada con **Tailwind CSS**, ofrece una interfaz moderna, responsive y fácil de usar.
+
+### ✨ Características Principales
+
+- 📊 **Panel de Control Estadístico** - Dashboard con métricas en tiempo real
+- ✅ **Validación Avanzada** - Formularios con validación tanto del cliente como del servidor
+- 🔐 **Sistema de Autenticación** - Laravel Breeze integrado para autenticación segura
+- 📦 **Gestión de Stock** - Control de inventario con alertas de stock bajo
+- 🏷️ **Categorización** - Organiza productos por categorías
+- 🎨 **Diseño Moderno** - UI/UX responsive con Tailwind CSS
+- 🔍 **Visualización de Detalles** - Vista detallada de cada producto
+- ⚡ **Arquitectura MVC** - Código limpio y bien organizado
 
 ---
 
-## Instalación
+## 🛠️ Tecnologías Utilizadas
 
-Clona el repositorio:
+<table>
+<tr>
+<td valign="top" width="50%">
+
+### Backend
+- **Framework**: Laravel 12.0
+- **Lenguaje**: PHP 8.2+
+- **ORM**: Eloquent
+- **Autenticación**: Laravel Breeze
+- **Testing**: Pest PHP
+- **Desarrollo**: Laravel Pint, Blueprint
+
+</td>
+<td valign="top" width="50%">
+
+### Frontend
+- **CSS Framework**: Tailwind CSS 3.x
+- **Forms**: @tailwindcss/forms
+- **JS Framework**: Alpine.js 3.15+
+- **Build Tool**: Vite 7.x
+- **HTTP Client**: Axios
+
+</td>
+</tr>
+</table>
+
+---
+
+## 📦 Requisitos
+
+Antes de comenzar, asegúrate de tener instalado:
+
+| Requisito | Versión Mínima | Propósito |
+|-----------|----------------|-----------|
+| **PHP** | 8.2 o superior | Runtime del servidor |
+| **Composer** | 2.x | Gestor de dependencias PHP |
+| **Node.js** | 18.x o superior | Compilación de assets |
+| **NPM** | 9.x o superior | Gestor de paquetes Node |
+| **MySQL** / **MariaDB** | 5.7+ / 10.3+ | Base de datos |
+| **Git** | Última versión | Control de versiones *(opcional)* |
+
+---
+
+## 🚀 Instalación
+
+### 1️⃣ Clonar el Repositorio
 
 ```bash
-git clone https://github.com/fgonmar445/gestorProductos
+git clone https://github.com/fgonmar445/gestorProductos.git
 cd gestorProductos
 ```
 
-## Instalación dependencias
+### 2️⃣ Instalar Dependencias
 
+#### Backend (PHP/Composer)
 ```bash
 composer install
+```
+
+#### Frontend (Node/NPM)
+```bash
 npm install
 ```
 
-### Copia el archivo de entorno:
+### 3️⃣ Configuración del Entorno
 
+#### Copiar el archivo de configuración
 ```bash
 cp .env.example .env
 ```
 
-### Genera la clave de la app:
-
+#### Generar la clave de aplicación
 ```bash
 php artisan key:generate
 ```
 
----
+### 4️⃣ Configuración de Base de Datos
 
-## Configuración de Base de Datos
-- Edita tu archivo .env:
-```bash
-DB_DATABASE=nombre_de_tu_bd
+Edita el archivo `.env` con tus credenciales de base de datos:
+
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=gestor_productos
 DB_USERNAME=tu_usuario
-DB_PASSWORD=tu_password
+DB_PASSWORD=tu_contraseña
 ```
-- Ejecuta migraciones:
+
+### 5️⃣ Ejecutar Migraciones
+
 ```bash
 php artisan migrate
 ```
+
+> **💡 Tip**: Si deseas poblar la base de datos con datos de prueba, también puedes ejecutar:
+> ```bash
+> php artisan db:seed
+> ```
+
+### 6️⃣ Configuración Opcional (Importar SQL)
+
+Alternativamente, puedes importar el archivo SQL incluido:
+
+```bash
+mysql -u tu_usuario -p gestor_productos < gestor-productos.sql
+```
+
 ---
 
-## Estructura del CRUD
+## 🎯 Uso
+
+### Iniciar el Servidor de Desarrollo
+
+#### Opción 1: Modo Simple
+```bash
+# Terminal 1: Servidor Laravel
+php artisan serve
+
+# Terminal 2: Compilación de Assets
+npm run dev
+```
+
+#### Opción 2: Modo Concurrente (Recomendado)
+```bash
+composer dev
+```
+
+Este comando ejecuta simultáneamente:
+- ✅ Servidor Laravel (`php artisan serve`)
+- ✅ Cola de trabajos (`php artisan queue:listen`)
+- ✅ Logs en tiempo real (`php artisan pail`)
+- ✅ Compilación de Vite (`npm run dev`)
+
+### Acceder a la Aplicación
+
+Abre tu navegador y visita:
+
+```
+http://127.0.0.1:8000
+```
+
+### Comandos Útiles
+
+```bash
+# Ejecutar tests
+composer test
+
+# Compilar assets para producción
+npm run build
+
+# Limpiar caché
+php artisan optimize:clear
+```
+
+---
+
+## 📁 Estructura del Proyecto
 
 ```
 gestorProductos/
@@ -65,57 +205,61 @@ gestorProductos/
 ├── app/
 │   ├── Http/
 │   │   └── Controllers/
-│   │       └── ProductoController.php
+│   │       ├── ProductoController.php    # Controlador CRUD principal
+│   │       └── ProfileController.php     # Gestión de perfiles
 │   └── Models/
-│       └── Producto.php
+│       └── Producto.php                  # Modelo de producto
 │
-├── bootstrap/
-├── config/
 ├── database/
-│   ├── migrations/
-│   └── gestor-productos.sql
+│   ├── migrations/                       # Migraciones de BD
+│   └── gestor-productos.sql              # Backup SQL
 │
-├── public/
 ├── resources/
 │   └── views/
-│       └── productos/
-│           ├── index.blade.php
-│           ├── create.blade.php
-│           ├── edit.blade.php
-│           └── form.blade.php
+│       ├── productos/                    # Vistas CRUD
+│       │   ├── index.blade.php           # Listado de productos
+│       │   ├── create.blade.php          # Formulario de creación
+│       │   ├── edit.blade.php            # Formulario de edición
+│       │   └── form.blade.php            # Componente de formulario
+│       ├── dashboard.blade.php           # Panel de control
+│       └── index.blade.php               # Página de inicio
 │
 ├── routes/
-│   └── web.php
+│   ├── web.php                           # Rutas web
+│   └── auth.php                          # Rutas de autenticación
 │
-├── storage/
-├── tests/
+├── public/
+│   └── images/                           # Capturas de pantalla
 │
-├── package.json
-├── composer.json
-├── tailwind.config.js
-├── vite.config.js
+├── composer.json                         # Dependencias PHP
+├── package.json                          # Dependencias Node
+├── tailwind.config.js                    # Configuración Tailwind
+├── vite.config.js                        # Configuración Vite
 └── README.md
 ```
 
-### Controlador
+---
 
-app/Http/Controllers/ProductoController.php
+## 🎨 Modelo de Datos
 
+### Tabla: `productos`
 
-Métodos incluidos:
+| Campo | Tipo | Descripción |
+|-------|------|-------------|
+| `id` | Primary Key | Identificador único |
+| `nombre` | String | Nombre del producto |
+| `descripcion` | Text | Descripción detallada |
+| `precio` | Decimal(10,2) | Precio del producto |
+| `stock` | Integer | Cantidad disponible |
+| `categoria` | String | Categoría del producto |
+| `disponible` | Boolean | Disponibilidad (activo/inactivo) |
+| `created_at` | Timestamp | Fecha de creación |
+| `updated_at` | Timestamp | Última actualización |
 
-- index() → Listar productos
-- create() → Formulario de creación
-- store() → Guardar producto
-- edit() → Formulario de edición
-- update() → Actualizar producto
-- destroy() → Eliminar producto
+### Modelo Eloquent
 
-### Modelo
-
-app/Models/Producto.php
-
-```
+```php
+// app/Models/Producto.php
 protected $fillable = [
     'nombre',
     'descripcion',
@@ -125,85 +269,108 @@ protected $fillable = [
     'disponible',
 ];
 ```
----
-
-## Funcionalidades
-
-- CRUD completo de productos
-
-- Panel de control con estadísticas
-
-- Validación de formularios
-
-- Gestión de stock (incluye alertas de stock bajo)
-
-- Categorías y disponibilidad
-
-- Diseño responsive con Tailwind CSS
-
-- Últimos productos añadidos
-
-- Código organizado siguiendo MVC
-
---- 
-
-## Vistas (Blade)
-- Ubicadas en:
-```
-resources/views/productos/
-```
-- index.blade.php
-
-- create.blade.php
-
-- edit.blade.php
-
-- form.blade.php
-
-## Capturas de pantalla
-
-### Homepage
-<img src="/public/images/homepage.png">
 
 ---
 
-### Inicio
-<img src="/public/images/inicio.png">
+## 🧩 Funcionalidades CRUD
+
+### ProductoController
+
+| Método | Ruta | Descripción |
+|--------|------|-------------|
+| `index()` | `GET /productos` | Lista todos los productos |
+| `create()` | `GET /productos/create` | Muestra formulario de creación |
+| `store()` | `POST /productos` | Guarda nuevo producto |
+| `show()` | `GET /productos/{id}` | Muestra detalles del producto |
+| `edit()` | `GET /productos/{id}/edit` | Muestra formulario de edición |
+| `update()` | `PUT/PATCH /productos/{id}` | Actualiza producto existente |
+| `destroy()` | `DELETE /productos/{id}` | Elimina producto |
+
+> **🔐 Nota de Seguridad**: Todas las rutas de productos están protegidas por el middleware `auth`
 
 ---
 
-### Productos
-<img src="/public/images/productos.png">
+## 📸 Capturas de Pantalla
+
+### 🏠 Página Principal
+![Homepage](public/images/homepage.png)
+*Vista de bienvenida con diseño moderno y atractivo*
 
 ---
 
-### Editar productos
-<img src="/public/images/editar.png">
+### 📊 Dashboard / Panel de Control
+![Dashboard](public/images/inicio.png)
+*Dashboard con estadísticas y métricas del inventario*
 
 ---
 
-### Detalles productos
-<img src="/public/images/detalle_productos.png">
+### 📋 Listado de Productos
+![Productos](public/images/productos.png)
+*Vista completa del inventario con opciones de filtrado*
 
 ---
-## Cómo ejecutar el proyecto
-- Ejecutar el servidor
-```
-php artisan serve
-```
-- Compilar estilos
-```
-npm run dev
-```
-- Accede a http://127.0.0.1:8000
+
+### ✏️ Editar Producto
+![Editar](public/images/editar.png)
+*Formulario de edición con validación en tiempo real*
+
 ---
-## Mejoras futuras
-* Subida de imágenes para productos
 
-- Exportar inventario a PDF/Excel
+### 🔍 Detalles del Producto
+![Detalles](public/images/detalle_productos.png)
+*Vista detallada con toda la información del producto*
 
-- Gráficos en el panel (Chart.js)
+---
 
-- Filtros avanzados en el listado
+## 🔮 Mejoras Futuras
 
-- Autenticación por roles (admin/usuario)
+### En Desarrollo
+- [ ] 📷 **Subida de imágenes** - Gestión de imágenes para productos
+- [ ] 📊 **Exportación de datos** - Exportar inventario a PDF/Excel
+- [ ] 📈 **Gráficos interactivos** - Integración con Chart.js para visualización de datos
+
+### Planificadas
+- [ ] 🔍 **Filtros avanzados** - Sistema de búsqueda y filtrado mejorado
+- [ ] 👥 **Sistema de roles** - Autenticación por roles (admin/usuario/vendedor)
+- [ ] 🌐 **API RESTful** - Endpoint API para integración con otros sistemas
+- [ ] 📱 **PWA** - Convertir a Progressive Web App
+- [ ] 🔔 **Notificaciones** - Alertas automáticas de stock bajo
+- [ ] 📦 **Gestión de proveedores** - Módulo de proveedores y pedidos
+- [ ] 💰 **Historial de precios** - Tracking de cambios de precio
+
+---
+
+## 🤝 Contribución
+
+¿Tienes ideas para mejorar este proyecto? ¡Las contribuciones son bienvenidas!
+
+1. Haz un fork del proyecto
+2. Crea una rama para tu característica (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add: nueva característica increíble'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
+
+---
+
+## 📄 Licencia
+
+Este proyecto está bajo la licencia **MIT**. Consulta el archivo [LICENSE](LICENSE) para más detalles.
+
+---
+
+## 👨‍💻 Autor
+
+**fgonmar445**
+
+- GitHub: [@fgonmar445](https://github.com/fgonmar445)
+- Proyecto: [gestorProductos](https://github.com/fgonmar445/gestorProductos)
+
+---
+
+<div align="center">
+
+### ⭐ Si este proyecto te fue útil, considera darle una estrella
+
+**Hecho con ❤️ usando Laravel y Tailwind CSS**
+
+</div>
