@@ -32,7 +32,7 @@
 
 **Gestor de Productos** es una aplicación web CRUD completa diseñada para administrar inventarios de productos de manera eficiente y profesional. Construida con **Laravel 12** y estilizada con **Tailwind CSS**, ofrece una interfaz moderna, responsive y fácil de usar.
 
-### ✨ Características Principales
+### ✨ Características
 
 - 📊 **Panel de Control Estadístico** - Dashboard con métricas en tiempo real
 - ✅ **Validación Avanzada** - Formularios con validación tanto del cliente como del servidor
@@ -45,7 +45,7 @@
 
 ---
 
-## 🛠️ Tecnologías Utilizadas
+## 🛠️ Tecnologías
 
 <table>
 <tr>
